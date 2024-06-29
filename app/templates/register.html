@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+
+
+    
+</head>
+<body>
+    
+    <center>
+        <h1>
+            REGISTER TO INSTA BILL
+        </h1>
+        <br><br><br><br>
+        <form method="post">
+            {% csrf_token %}
+            {% if messages %}
+            <div style="color: red;">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+
+            <label for="Username"> USERNAME</label>
+            <input type="text" name="username" autocomplete="off"><br>
+            <label for="password"> PASSWORD</label>
+            <input type="password" name="password"><br>
+            <label for="code"> Company Code</label>
+            <input type="password" name="code"><br>
+            <button type="submit">Register</button>
+        </form>
+        Already registered? 
+        <a href="{% url 'login' %}"><button>LOGIN</button></a>
+        <br><br>
+        <a href="{% url 'home' %}"><button>HOME</button></a>
+    </center>
+    
+</body>
+</html>
